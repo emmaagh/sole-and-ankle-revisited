@@ -24,13 +24,15 @@ const Icon = ({ id, color, size, strokeWidth, ...delegated }) => {
   }
 
   return (
-    <Wrapper strokeWidth={strokeWidth} {...delegated}>
+    <Wrapper strokeWidth={strokeWidth} isClickable={!!delegated.onClick} {...delegated}>
       <Component color={color} size={size} />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
+  cursor: ${(p) => p.isClickable ? 'pointer' : 'auto'};
+
   & > svg {
     display: block;
     stroke-width: ${(p) =>

@@ -11,6 +11,8 @@ export default styled.button`
   font: inherit;
   color: inherit;
 
+  cursor: pointer;
+
   &:focus {
     outline-offset: 2px;
   }

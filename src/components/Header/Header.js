@@ -1,19 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, QUERIES, WEIGHTS } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import Icon from '../Icon';
+import UnstyledButton from '../UnstyledButton';
+import NavLink from '../NavLink';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
-
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
 
   return (
     <header>
@@ -34,7 +31,9 @@ const Header = () => {
           <MobileNav>
             <Icon id='shopping-bag' />
             <Icon id='search' />
-            <Icon id='menu' />
+            <UnstyledButton>
+              <Icon id='menu' onClick={() => setShowMobileMenu(true)} />
+            </UnstyledButton>
           </MobileNav>
         </Side>
       </MainHeader>
@@ -90,18 +89,6 @@ const MobileNav = styled.nav`
 
 const Side = styled.div`
   flex: 1;
-`;
-
-const NavLink = styled.a`
-  font-size: 1.125rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
-
-  &:first-of-type {
-    color: ${COLORS.secondary};
-  }
 `;
 
 export default Header;
