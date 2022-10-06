@@ -25,6 +25,11 @@ const Main = styled.main`
     padding-top: 48px;
     padding-bottom: 48px;
   }
+
+  @media ${QUERIES.phoneAndBelow} {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 `;
 
 export default App;
